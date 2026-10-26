@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Medical Symptom Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">MediAssist AI</div>
+        <span class="status">AI Health Support</span>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="tagline">YOUR HEALTH, OUR PRIORITY</p>
+            <h1>Understand Your Symptoms with AI</h1>
+            <p class="description">
+                Share your symptoms and receive an AI-generated
+                informational report to help you understand your concerns.
+            </p>
+        </section>
+
+        <section class="form-card">
+            <h2>Patient Information</h2>
+            <p class="form-description">
+                Please provide the details below for a more relevant response.
+            </p>
+
+            <form action="/analyze" method="POST">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age"
+                               min="0" max="120" required
+                               placeholder="Enter your age">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sex">Sex (optional)</label>
+                        <select id="sex" name="sex">
+                            <option value="">Prefer not to say</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="symptoms">Symptoms</label>
+                    <textarea id="symptoms" name="symptoms" rows="4"
+                              required
+                              placeholder="Describe the symptoms you are experiencing..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <input type="text" id="duration" name="duration"
+                               required
+                               placeholder="e.g. 2 days">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="severity">Severity</label>
+                        <select id="severity" name="severity" required>
+                            <option value="">Select severity</option>
+                            <option value="Mild">Mild</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Severe">Severe</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="history">Medical History</label>
+                    <textarea id="history" name="history" rows="2"
+                              placeholder="Existing conditions, if any"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="medications">Current Medications</label>
+                    <input type="text" id="medications" name="medications"
+                           placeholder="Enter medications, if any">
+                </div>
+
+                <div class="form-group">
+                    <label for="allergies">Allergies</label>
+                    <input type="text" id="allergies" name="allergies"
+                           placeholder="Enter known allergies, if any">
+                </div>
+
+                <button type="submit">Analyze My Symptoms</button>
+            </form>
+        </section>
+
+        <section class="notice">
+            <h3>Important Medical Notice</h3>
+            <p>
+                This assistant provides general health information, not a
+                medical diagnosis. AI responses may be inaccurate. Consult
+                a qualified healthcare professional for medical advice.
+                For severe or rapidly worsening symptoms, seek urgent
+                medical care instead of waiting for an AI response.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>AI-Powered Medical Symptom Assistant | Academic Experiment</p>
+    </footer>
+
+</body>
+</html>
